@@ -23,5 +23,3 @@ async function registerAccountService({ name, email, passEncrypt, res }) {
 }
 
 module.exports = { registerAccountService };
-
-// // Verificar a força da senha (mínimo de 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial)
