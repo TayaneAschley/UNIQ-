@@ -1,5 +1,4 @@
 const { registerAccountService } = require("../services/registerAccount");
-const bcrypt = require("bcrypt");
 
 const registerAccount = async (req, res) => {
   const { name, email, password } = req.body;
@@ -9,20 +8,34 @@ const registerAccount = async (req, res) => {
 
   const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!validEmail.test(email)) {
-    return res.status(400).json({ messagem: "email inválido" });
+    return res.send({ messagem: "email inválido" });
   }
 
   const passRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
   if (!passRegex.test(password)) {
-    return res.status(400).json({ messagem: "senha fraca" });
+    return res.send({
+      messagem:
+        "A senha precisa atender aos requisitos obrigatórios como: possuir tamanho maior que 6, " +
+        "devem ser incluidos pelo menos uma letra maiúscula, um número e um caractere especial",
+    });
   }
 
   try {
-    const passEncrypt = await bcrypt.hash(password, 10);
-    await registerAccountService({ name, email, passEncrypt, res });
-    return res.status(200).json();
+    const addAccount = await registerAccountService({
+      name,
+      email,
+      password,
+      res,
+    });
+
+    if (addAccount) {
+      return res
+        .status(201)
+        .json({ menssagem: "Usuario cadastrado com sucesso!" });
+    }
   } catch (error) {
+    console.log(error);
     return res.status(501).json({ messagem: "Erro interno do servidor" });
   }
 };
