@@ -16,6 +16,17 @@ Para se tornar parte do **UNIQ**, basta seguir estas etapas simples:
 2. Preencha os campos obrigatórios.
 3. Aproveite os benefícios exclusivos de ser um membro **UNIQ**.
 
+### Rota de Cadastro
+
+Endpoint: /register
+
+Método: POST
+Parâmetros de Requisição
+
+    name (string): O nome de usuário desejado para o novo cadastro.
+    email (string): O email desejado para o novo cadastro.
+    password (string): A senha desejada para o novo cadastro.
+
 ### Login
 
 Já faz parte da família **UNIQ**? Faça o login facilmente:
@@ -23,6 +34,16 @@ Já faz parte da família **UNIQ**? Faça o login facilmente:
 1. Acesse a página de login.
 2. Insira suas credenciais.
 3. Explore as funcionalidades personalizadas disponíveis para você.
+
+### Rota de login
+
+Endpoint: /login
+
+Método: POST
+Parâmetros de Requisição
+
+    email (string): O email do usuario já cadastrado.
+    password (string): A senha do usuario já cadastrada.
 
 ## 🤝 Como Contribuir
 
