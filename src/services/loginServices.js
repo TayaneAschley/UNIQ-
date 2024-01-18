@@ -11,9 +11,9 @@ async function loginServices(email, password, res) {
       return false;
     }
 
-    return res.status(200).send({ messagem: "Usuário logado!" });
+    return res.status(200).send({ mensagem: "Usuário logado!" });
   } catch (error) {
-    return res.status(500).send({ messagem: error });
+    return res.status(500).send({ mensagem: error });
   }
 }
 

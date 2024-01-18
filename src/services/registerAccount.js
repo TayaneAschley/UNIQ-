@@ -8,7 +8,7 @@ async function registerAccountService({ name, email, password, res }) {
     });
 
     if (!searchExistingEmail.length == 0) {
-      return res.json({ messagem: "Email já cadastrado!" });
+      return res.json({ mensagem: "Email já cadastrado!" });
     }
 
     const passEncrypt = bcrypt.hashSync(password, 10);
@@ -23,7 +23,7 @@ async function registerAccountService({ name, email, password, res }) {
     console.log(createNewAccount);
     return true;
   } catch (error) {
-    return res.status(500).json({ messagem: error });
+    return res.status(500).json({ mensagem: error });
   }
 }
 
