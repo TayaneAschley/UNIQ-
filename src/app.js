@@ -16,7 +16,7 @@ app.use(routerRegister);
 app.use(routerLogin);
 
 app.listen(port, () => {
-  console.log(`servidor aberto na porta ${port}`);
+  console.log(`Aberto na porta ${port}`);
 });
 
 module.exports = app;
