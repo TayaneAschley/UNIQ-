@@ -1,6 +1,5 @@
 const { compareSync } = require("bcrypt");
 const { loginServices } = require("../services/loginServices");
-const jwt = require("jsonwebtoken");
 const knex = require("../database/conection");
 
 const login = async (req, res) => {
